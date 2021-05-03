@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]; then
+	echo "Usage: $(basename $0) <addr>"
+	exit 1
+fi
+
+case "$@" in
+*-release) type=release;;
+*) type=debug;;
+esac
+
+set -x
+lib64=./gamejni/build/intermediates/ndkBuild/$type/obj/local/arm64-v8a/libgame.so
+addr2line -e $lib64 $@
+
+#lib=./gamejni/build/intermediates/ndkBuild/$type/obj/local/armeabi-v7a/libgame.so
+#addr2line -e $lib $@

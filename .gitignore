@@ -1,0 +1,8 @@
+gamelib/src/jni/rgu/
+gamelib/src/jni/game/
+build/
+.android/
+.gradle/
+.externalNativeBuild
+*.swp
+tags
